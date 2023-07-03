@@ -4,12 +4,44 @@
 <head>
 	<title>Ejemplo básico</title>
 	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="./css/styles.css" />
 </head>
 
 <body>
 	<h1>La aplicación esta corriendo!</h1>
-
-	<script src="./index.js" type="module"></script>
+	<div class="container">
+      
+		<div class="topborder"><p id="dot"> ...</p></div>
+		<h1>Tareas por hacer</h1>
+		<h2>
+		  Tareas <br />Completadas
+		</h2>
+  
+		<div class="containercheck">
+		  <div id="contador">0</div>
+		</div>
+  
+		<div class="buscar">
+		  <form>
+			<input type="text" placeholder="Agregar Tarea" id="input" /> <br />
+			<button class="btn-agregar">Agregar</button>
+		  </form>
+		</div>
+  
+		<div>
+		  <ol></ol>
+		</div>
+  
+		<div class="vacio">
+		  <p>No hay tareas</p>
+		</div>
+	  </div>
+  
+	  <script
+		src="https://kit.fontawesome.com/f2936d5e48.js"
+		crossorigin="anonymous"
+	  ></script>
+	<script src="./js/index.js" type="module"></script>
 </body>
 
 </html>
