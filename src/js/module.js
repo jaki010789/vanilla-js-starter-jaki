@@ -1,6 +1,6 @@
 // Inserte el código aquí
-import { post } from "./API.js";
-import { borrar } from "./API.js";
+import { post, get, borrar } from "./API.js";
+
 const input = document.querySelector("#input");
 const ol = document.querySelector("ol");
 const vacio = document.querySelector(".vacio");
@@ -15,10 +15,15 @@ let agregarLista = async (evento) => {
     const ptext = document.createElement("ptext");
     ptext.textContent = text;
 
-    let responsePost = await post(text);
-    li.id = responsePost.id;
+    let task = {
+      task: text,
+      checked: false,
+    };
 
-    console.log(responsePost);
+    let respuesta = await post(task);
+    console.log({ respuesta });
+
+    li.id = respuesta.id;
 
     li.className = "list";
 
@@ -40,10 +45,10 @@ function BtnBorrar() {
 
   delBtn.className = "fa-solid fa-trash-can i";
 
-  delBtn.addEventListener("click", (e) => {
+  delBtn.addEventListener("click", async (e) => {
     const item = e.target.parentElement;
-    console.log(item.id);
-    // borrar(item.id);
+
+    console.log(item);
 
     let check = item.querySelector("input");
 
@@ -53,7 +58,9 @@ function BtnBorrar() {
       contador.textContent = cuenta;
     }
 
+    await borrar(item.id);
     ol.removeChild(item);
+    console.log(item.id);
 
     const add = document.querySelectorAll("li");
     if (add.length === 0) {
@@ -70,6 +77,7 @@ function BtnCheck() {
   let check = document.createElement("input");
   check.setAttribute("type", "checkbox");
   check.className = "checkbox";
+  check.checked = false;
 
   check.addEventListener("click", function () {
     if (check.checked) {
