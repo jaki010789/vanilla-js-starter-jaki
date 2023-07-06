@@ -40,6 +40,18 @@ async function borrar(id) {
   });
 }
 
+async function put (id, task) {
+  let response = await fetch("http://localhost:3000/api/task/" + id, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(task),
+  });
+ 
+  return await response.json();
+}
 
 
-export { post, get, borrar };
+export { post, get, borrar, put };
