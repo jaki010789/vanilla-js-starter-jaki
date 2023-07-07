@@ -23,12 +23,16 @@ let agregarLista = async (evento) => {
     input.value = "";
     vacio.style.display = "none";
   } else {
-    Swal.fire(
 
-      'Ingresaste una tarea vacía',
-      '',
-      'error'
-    );
+    Swal.fire({
+      title: 'OH NO, Ingresa un texto!' ,
+      text: " _ ",
+      imageUrl: 'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWRmZXN3NjEzdnUwc2ZlankxOXY1Ym15YzR0ZzgxcjYzNHRlNWExNiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ZcKDWNzkQ9tOsV9LXp/giphy.gif',
+      imageWidth: 200,
+      imageHeight: 100,
+      imageAlt: 'Custom image',
+      
+    })
   }
 };
 
